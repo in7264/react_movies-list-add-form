@@ -23,7 +23,6 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
   const [imdbId, setImdbId] = useState('');
 
   const [titleError, setTitleError] = useState(false);
-  const [descriptionError, setDescriptionError] = useState(false);
   const [imgUrlError, setImgUrlError] = useState(false);
   const [imdbUrlError, setImdbUrlError] = useState(false);
   const [imdbIdError, setImdbIdError] = useState(false);
@@ -73,7 +72,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
         value={title}
         onChange={text => setTitle(text)}
         onBlur={() => {
-          setTitleError(!title);
+          setTitleError(!title.trim());
         }}
         required
         error={titleError}
@@ -84,10 +83,6 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
         label="Description"
         value={description}
         onChange={text => setDescription(text)}
-        onBlur={() => {
-          setDescriptionError(!description);
-        }}
-        error={descriptionError}
       />
 
       <TextField
@@ -96,7 +91,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
         value={imgUrl}
         onChange={text => setImgUrl(text)}
         onBlur={() => {
-          setImgUrlError(!imgUrl);
+          setImgUrlError(!imgUrl.trim());
         }}
         required
         error={imgUrlError}
@@ -108,7 +103,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
         value={imdbUrl}
         onChange={text => setImdbUrl(text)}
         onBlur={() => {
-          setImdbUrlError(!imdbUrl);
+          setImdbUrlError(!imdbUrl.trim());
         }}
         required
         error={imdbUrlError}
@@ -120,7 +115,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
         value={imdbId}
         onChange={text => setImdbId(text)}
         onBlur={() => {
-          setImdbIdError(!imdbId);
+          setImdbIdError(!imdbId.trim());
         }}
         required
         error={imdbIdError}
